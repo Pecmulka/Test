@@ -1,5 +1,5 @@
 class Session:
-    def __init__(self, semestr, numberOfTests, numberOfExams):
+    def __init__(self, semestr = 0, numberOfTests = 0, numberOfExams = 0):
         self.__semestr = semestr
         self.__numberOfTests = numberOfTests
         self.__numberOfExams = numberOfExams
@@ -46,31 +46,37 @@ class Session:
             self.__numberOfExams = value
     
     def passed(self):
-         if self.__semestr in (3, 7):
-            if self.__num
-                return print("Введено недопустимое значение")
+        if self.__semestr in (3, 7):
+            if self.__numberOfTests == 3 and self.__numberOfExams == 4:
+                return print("Зачет")
             else:
-                self.__numberOfTests = value
-        if self.__semestr in (5 ,6):
-            if value > 4:
-                return print("Введено недопустимое значение")
+                return print("Незачет")
+        if self.__semestr in (5, 6):
+            if self.__numberOfTests == 4 and self.__numberOfExams == 4:
+                return print("Зачет")
             else:
-                self.__numberOfTests = value
+                return print("Незачет")
         else:
-            if value > 5:
-                return print("Введено недопустимое значение")
+            if self.__numberOfTests == 5 and self.__numberOfExams == 4:
+                return print("Зачет")
             else:
-                self.__numberOfTests = value
+                return print("Незачет")
 
-Test = Session(2, 4, 2)
+
+Test = Session()
+Session.set_semestr(Test)
+Session.set_numberOfTests(Test)
+Session.set_numberOfExams(Test)
 print(Session.get_semestr(Test))
 print(Session.get_numberOfTests(Test))
 print(Session.get_numberOfExams(Test))
+Session.passed(Test)
 
-Test2 = Session(0, 0, 0)
+Test2 = Session()
 Session.set_semestr(Test2)
 Session.set_numberOfTests(Test2)
 Session.set_numberOfExams(Test2)
 print(Session.get_semestr(Test2))
 print(Session.get_numberOfTests(Test2))
 print(Session.get_numberOfExams(Test2))
+Session.passed(Test2)
